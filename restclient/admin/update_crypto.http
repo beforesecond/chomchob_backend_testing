@@ -1,0 +1,7 @@
+PUT http://localhost:3000/admin/crypto
+Content-Type: application/json
+
+{
+    "currency":"btc",
+    "rate":20000
+}

@@ -1,0 +1,8 @@
+PUT http://localhost:3000/admin/userBalance
+Content-Type: application/json
+
+{
+    "username":"test",
+    "currency":"ltc",
+    "amount":10000
+}

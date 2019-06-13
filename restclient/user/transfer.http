@@ -1,0 +1,14 @@
+POST http://localhost:3000/user/transfer
+Content-Type: application/json
+
+{
+    "from":{
+        "username":"test",
+        "amount":1000,
+        "currency":"ltc"
+    },
+    "to":{
+        "username":"test2",
+        "currency":"btc"
+    }
+}
