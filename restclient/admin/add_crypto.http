@@ -2,7 +2,7 @@ POST http://localhost:3000/admin/crypto
 Content-Type: application/json
 
 {
-    "name":"litecoin",
-    "currency":"ltc",
-    "rate":"10000"
+    "name":"etherium",
+    "currency":"eth",
+    "rate":"30"
 }

@@ -4,11 +4,11 @@ Content-Type: application/json
 {
     "from":{
         "username":"test",
-        "amount":1000,
-        "currency":"btc"
+        "amount":100,
+        "currency":"ltc"
     },
     "to":{
         "username":"test2",
-        "currency":"btc"
+        "currency":"eth"
     }
 }

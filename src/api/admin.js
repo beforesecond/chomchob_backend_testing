@@ -2,15 +2,15 @@ import { CryptoModel } from '../models'
 import { UserModel } from '../models'
 import { JSON_RESPONSE } from '../constants'
 
-const addCrypto = (req, res) => {
+const addCrypto = async (req, res) => {
   try {
     const { body } = req
     const crypto = {
-      name: body.name,
+      name: body.name.toUpperCase(),
       currency: body.currency.toUpperCase(),
-      rate: body.rate
+      rate: Number(body.rate)
     }
-    CryptoModel.CreateOne(crypto)
+    await CryptoModel.CreateOne(crypto)
     res.status(JSON_RESPONSE.OK.code).json(JSON_RESPONSE.OK)
   } catch (e) {
     res.status(JSON_RESPONSE.ERROR.code).json(JSON_RESPONSE.ERROR)
@@ -80,7 +80,7 @@ const getTotalBalance = async (req, res) => {
       items.total = 0
     })
     userResult.map(items => {
-      key = Object.keys(items)
+      let key = Object.keys(items)
       key.map(keys => {
         if (keys !== 'username' && keys !== 'password' && keys !== '_id') {
           currencyResult.map(currency => {
@@ -95,6 +95,7 @@ const getTotalBalance = async (req, res) => {
       .status(JSON_RESPONSE.OK.code)
       .json({ ...JSON_RESPONSE.OK, data: currencyResult })
   } catch (e) {
+    console.log(e)
     res.status(JSON_RESPONSE.ERROR.code).json(JSON_RESPONSE.ERROR)
   }
 }

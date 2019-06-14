@@ -18,7 +18,16 @@ const cryptoSchema = new mongoose.Schema({
 const Crypto = mongoose.model(COLLECTION.CRYPTO, cryptoSchema)
 
 const CreateOne = data => {
-  db.CreateOne(COLLECTION.CRYPTO, data)
+  return new Promise(async (resolve, reject) => {
+    try {
+      await db.CreateOne(COLLECTION.CRYPTO, data)
+      resolve(true)
+      return true
+    } catch (e) {
+      reject(e)
+      return false
+    }
+  })
 }
 
 const Find = async data => {

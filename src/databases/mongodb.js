@@ -7,14 +7,22 @@ const connectDb = () => {
 }
 
 const CreateOne = (collection, data) => {
-  MongoClient.connect(DATABASE_URL, function(err, db) {
-    if (err) throw err
-    var dbo = db.db('')
-    console.log(collection, data)
-    dbo.collection(collection).insertOne(data, function(err, res) {
-      if (err) throw err
-      console.log('1 document inserted')
-      db.close()
+  return new Promise((resolve, reject) => {
+    MongoClient.connect(DATABASE_URL, function(err, db) {
+      if (err) {
+        reject(err)
+        return
+      }
+      var dbo = db.db('')
+      dbo.collection(collection).insertOne(data, function(err, res) {
+        if (err) {
+          reject(err)
+          return
+        }
+        console.log('1 document created')
+        db.close()
+        resolve(true)
+      })
     })
   })
 }
@@ -41,26 +49,34 @@ const Find = (collection, query) => {
 }
 
 const Delete = (collection, query) => {
-  MongoClient.connect(DATABASE_URL, function(err, db) {
-    if (err) throw err
-    var dbo = db.db('')
-    dbo.collection(collection).deleteOne(query, function(err, obj) {
-      if (err) throw err
-      console.log('1 document deleted')
-      db.close()
+  return new Promise((resolve, reject) => {
+    MongoClient.connect(DATABASE_URL, function(err, db) {
+      if (err) reject(err)
+      var dbo = db.db('')
+      dbo.collection(collection).deleteOne(query, function(err, obj) {
+        if (err) reject(err)
+        console.log('1 document deleted')
+        db.close()
+        resolve(result)
+      })
     })
   })
 }
 
 const Update = (collection, query, newData) => {
-  MongoClient.connect(DATABASE_URL, function(err, db) {
-    if (err) throw err
-    var dbo = db.db('')
-    var newvalues = { $set: newData }
-    dbo.collection(collection).updateOne(query, newvalues, function(err, res) {
-      if (err) throw err
-      console.log('1 document updated')
-      db.close()
+  return new Promise((resolve, reject) => {
+    MongoClient.connect(DATABASE_URL, function(err, db) {
+      if (err) reject(err)
+      var dbo = db.db('')
+      var newvalues = { $set: newData }
+      dbo
+        .collection(collection)
+        .updateOne(query, newvalues, function(err, res) {
+          if (err) reject(err)
+          console.log('1 document updated')
+          db.close()
+          resolve(true)
+        })
     })
   })
 }
