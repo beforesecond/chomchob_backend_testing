@@ -4,7 +4,7 @@
 
 # How to run local 🚀
 
-`nom run start // or yarn start`
+`npm run start // or yarn start`
 
 # How to test API Use HTTP Client Plugin For VSCODE 😊
 
