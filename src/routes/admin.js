@@ -8,4 +8,4 @@ router.delete('/crypto', admin.deleteCrypto)
 router.put('/userBalance', admin.updateUserBalance)
 router.get('/total', admin.getTotalBalance)
 
-module.exports = router
+export default router

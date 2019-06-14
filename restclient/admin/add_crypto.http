@@ -2,7 +2,7 @@ POST http://localhost:3000/admin/crypto
 Content-Type: application/json
 
 {
-    "name":"etherium",
-    "currency":"eth",
-    "rate":"30"
+    "name":"bitcoin",
+    "currency":"btc",
+    "rate":"10000"
 }

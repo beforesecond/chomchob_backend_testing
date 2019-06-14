@@ -4,5 +4,5 @@ Content-Type: application/json
 {
     "username":"test2",
     "currency":"ltc",
-    "amount":100
+    "amount":555
 }

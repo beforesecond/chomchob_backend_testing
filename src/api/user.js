@@ -92,7 +92,4 @@ function getNewToUser(data, currency, amount) {
   return newTo
 }
 
-module.exports = {
-  register,
-  transfer
-}
+export { register, transfer }

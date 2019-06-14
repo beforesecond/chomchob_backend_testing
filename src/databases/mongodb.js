@@ -57,7 +57,7 @@ const Delete = (collection, query) => {
         if (err) reject(err)
         console.log('1 document deleted')
         db.close()
-        resolve(result)
+        resolve(true)
       })
     })
   })
@@ -81,4 +81,4 @@ const Update = (collection, query, newData) => {
   })
 }
 
-module.exports = { connectDb, CreateOne, Find, Delete, Update }
+export { connectDb, CreateOne, Find, Delete, Update }

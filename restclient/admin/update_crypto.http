@@ -2,6 +2,6 @@ PUT http://localhost:3000/admin/crypto
 Content-Type: application/json
 
 {
-    "currency":"ltc",
-    "rate":5
+    "currency":"zth",
+    "rate":1500
 }

@@ -100,7 +100,7 @@ const getTotalBalance = async (req, res) => {
   }
 }
 
-module.exports = {
+export default {
   addCrypto,
   updateCrypto,
   deleteCrypto,

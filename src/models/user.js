@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import db from '../databases/mongodb'
+import * as db from '../databases/mongodb'
 import { COLLECTION } from '../constants'
 
 const userSchema = new mongoose.Schema({
@@ -48,11 +48,4 @@ const Delete = async data => {
   const result = await db.Delete(COLLECTION.USER, user)
 }
 
-module.exports = {
-  User,
-  CreateOne,
-  Find,
-  FindByUserName,
-  Update,
-  Delete
-}
+export { User, CreateOne, Find, FindByUserName, Update, Delete }

@@ -1,5 +1,5 @@
 import mongoose from 'mongoose'
-import db from '../databases/mongodb'
+import * as db from '../databases/mongodb'
 import { COLLECTION } from '../constants'
 
 const cryptoSchema = new mongoose.Schema({
@@ -44,17 +44,11 @@ const Update = async (data, newData) => {
 }
 
 const Delete = async data => {
-  const { username } = data
-  const user = {
-    username: username
+  const query = {
+    currency: data.currency
   }
-  const result = await db.Delete(COLLECTION.CRYPTO, user)
+  console.log(query)
+  const result = await db.Delete(COLLECTION.CRYPTO, query)
 }
 
-module.exports = {
-  Crypto,
-  CreateOne,
-  Find,
-  Update,
-  Delete
-}
+export { Crypto, CreateOne, Find, Update, Delete }
