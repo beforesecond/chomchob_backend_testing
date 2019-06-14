@@ -1,5 +1,5 @@
 const Contatns = require('./constants')
-const express = require('express')
+import express from 'express'
 const app = express()
 const port = Contatns.PORT
 const routes = require('./routes/index')

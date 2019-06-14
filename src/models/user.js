@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
-const db = require('../databases/mongodb')
-const { COLLECTION } = require('../constants')
+import mongoose from 'mongoose'
+import db from '../databases/mongodb'
+import { COLLECTION } from '../constants'
 
 const userSchema = new mongoose.Schema({
   username: {

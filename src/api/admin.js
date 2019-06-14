@@ -1,6 +1,6 @@
-const { CryptoModel } = require('../models')
-const { UserModel } = require('../models')
-const { JSON_RESPONSE } = require('../constants')
+import { CryptoModel } from '../models'
+import { UserModel } from '../models'
+import { JSON_RESPONSE } from '../constants'
 
 const addCrypto = (req, res) => {
   try {

@@ -5,7 +5,7 @@ Content-Type: application/json
     "from":{
         "username":"test",
         "amount":1000,
-        "currency":"ltc"
+        "currency":"btc"
     },
     "to":{
         "username":"test2",

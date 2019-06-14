@@ -1,6 +1,6 @@
-const mongoose = require('mongoose')
-var MongoClient = require('mongodb').MongoClient
-const { DATABASE_URL } = require('../constants')
+import mongoose from 'mongoose'
+const MongoClient = require('mongodb').MongoClient
+import { DATABASE_URL } from '../constants'
 
 const connectDb = () => {
   return mongoose.connect(DATABASE_URL)

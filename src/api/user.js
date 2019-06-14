@@ -1,6 +1,6 @@
-const { UserModel } = require('../models')
-const { CryptoModel } = require('../models')
-const { JSON_RESPONSE } = require('../constants')
+import { UserModel } from '../models'
+import { CryptoModel } from '../models'
+import { JSON_RESPONSE } from '../constants'
 
 const register = (req, res) => {
   try {
@@ -61,14 +61,12 @@ const transfer = async (req, res) => {
     UserModel.Update(userToFilter, newToUser)
     res.status(JSON_RESPONSE.OK.code).json(JSON_RESPONSE.OK)
   } catch (e) {
-    console.log(e)
     res.status(JSON_RESPONSE.ERROR.code).json(JSON_RESPONSE.ERROR)
   }
 }
 
 function checkCurrency(data, currency) {
-  keys = Object.keys(data)
-  console.log(keys)
+  let keys = Object.keys(data)
   const result = keys.filter(items => items === currency)
 
   return result.length > 0 ? true : false
